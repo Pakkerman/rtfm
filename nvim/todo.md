@@ -45,7 +45,13 @@
 
 - $ls | vim - : read from stdin and open in vim
 
-- [ ] usr_27.txt - Search commands and patterns
+- [x] usr_27.txt - Search commands and patterns
+
+  - "a.\{-\}b" will match "axb" in "axbab"
+  - "/forever\&..." will match "for", this pattern is forever, and dots are chars to match from the start, so 3 dots three chars. Hence "for" is matched, other word like "format" will not be match because there is no "forever" to be found
+  - when using range patterns like "\s", "\a", adding "\_", "\_s" and "\_a" will also match a line break "\n". matches the pattern or a line break.
+  - "\d" and "[0-9]" is the same, but \d is faster. Use that if speed is a concern.
+
 - [ ] usr_28.txt - Folding
 - [ ] usr_29.txt - Moving through programs
 - [ ] usr_30.txt - Editing programs
