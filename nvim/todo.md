@@ -57,7 +57,10 @@
   - zm: fold more (m for more)
   - zr: fold less (r for reduce)
 
-- [ ] usr_29.txt - Moving through programs
+- [x] usr_29.txt - Moving through programs
+
+  - it seems like that the tags are largely being replaced by the LSP capabilities.
+
 - [ ] usr_30.txt - Editing programs
 - [ ] usr_31.txt - Exploiting the GUI
 - [ ] usr_32.txt - The undo tree
