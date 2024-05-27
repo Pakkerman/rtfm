@@ -52,7 +52,11 @@
   - when using range patterns like "\s", "\a", adding "\_", "\_s" and "\_a" will also match a line break "\n". matches the pattern or a line break.
   - "\d" and "[0-9]" is the same, but \d is faster. Use that if speed is a concern.
 
-- [ ] usr_28.txt - Folding
+- [x] usr_28.txt - Folding
+
+  - zm: fold more (m for more)
+  - zr: fold less (r for reduce)
+
 - [ ] usr_29.txt - Moving through programs
 - [ ] usr_30.txt - Editing programs
 - [ ] usr_31.txt - Exploiting the GUI
