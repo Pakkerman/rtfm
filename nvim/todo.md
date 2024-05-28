@@ -61,7 +61,10 @@
 
   - it seems like that the tags are largely being replaced by the LSP capabilities.
 
-- [ ] usr_30.txt - Editing programs
+- [x] usr_30.txt - Editing programs
+
+  - i_CTRL-T: indent current line with 'shiftwidth'
+
 - [ ] usr_31.txt - Exploiting the GUI
 - [ ] usr_32.txt - The undo tree
 
