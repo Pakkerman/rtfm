@@ -65,7 +65,10 @@
 
   - i_CTRL-T: indent current line with 'shiftwidth'
 
-- [ ] usr_31.txt - Exploiting the GUI
+- [x] usr_31.txt - Exploiting the GUI
+
+  - nvim doesn't really have GUI version, or it is the GUI hybrid version already?
+
 - [ ] usr_32.txt - The undo tree
 
 ## Tuning Vim
