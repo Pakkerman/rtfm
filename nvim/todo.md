@@ -69,7 +69,7 @@
 
   - nvim doesn't really have GUI version, or it is the GUI hybrid version already?
 
-- [ ] usr_32.txt - The undo tree
+- [x] usr_32.txt - The undo tree
 
 ## Tuning Vim
 
