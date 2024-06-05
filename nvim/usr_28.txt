@@ -54,7 +54,7 @@ that indicates that there is a section.
 ==============================================================================
 *28.2*	Manual folding
 
-Try it out: Position the cursor in a paragraph and type:  
+Try it out: Position the cursor in a paragraph and type: >
 
 	zfap
 
@@ -63,11 +63,11 @@ created a fold.  |zf| is an operator and |ap| a text object selection.  You
 can use the |zf| operator with any movement command to create a fold for the
 text that it moved over.  |zf| also works in Visual mode.
 
-To view the text again, open the fold by typing:  
+To view the text again, open the fold by typing: >
 
 	zo
 
-And you can close the fold again with:  
+And you can close the fold again with: >
 
 	zc
 
@@ -86,23 +86,23 @@ opening the fold for the whole chapter will restore the nested folds as they
 were, some may be open and some may be closed.
 
 Suppose you have created several folds, and now want to view all the text.
-You could go to each fold and type "zo".  To do this faster, use this command:  
+You could go to each fold and type "zo".  To do this faster, use this command: >
 
 	zr
 
-This will R-educe the folding.  The opposite is:  
+This will R-educe the folding.  The opposite is: >
 
 	zm
 
 This folds M-ore.  You can repeat "zr" and "zm" to open and close nested folds
 of several levels.
 
-If you have nested several levels deep, you can open all of them with:  
+If you have nested several levels deep, you can open all of them with: >
 
 	zR
 
 This R-educes folds until there are none left.  And you can close all folds
-with:  
+with: >
 
 	zM
 
@@ -138,7 +138,7 @@ use Visual selection:
 - move the cursor to the new position and "p"ut the lines there.
 
 It is sometimes difficult to see or remember where a fold is located, thus
-where a |zo| command would actually work.  To see the defined folds:  
+where a |zo| command would actually work.  To see the defined folds: >
 
 	:set foldcolumn=4
 
@@ -161,16 +161,16 @@ Folds are opened automatically when jumping around or moving the cursor left
 or right.  For example, the "0" command opens the fold under the cursor
 (if 'foldopen' contains "hor", which is the default).  The 'foldopen' option
 can be changed to open folds for specific commands.  If you want the line
-under the cursor always to be open, do this:  
+under the cursor always to be open, do this: >
 
 	:set foldopen=all
 
 Warning: You won't be able to move onto a closed fold then.  You might want to
-use this only temporarily and then set it back to the default:  
+use this only temporarily and then set it back to the default: >
 
 	:set foldopen&
 
-You can make folds close automatically when you move out of it:  
+You can make folds close automatically when you move out of it: >
 
 	:set foldclose=all
 
@@ -188,18 +188,18 @@ closed and one with all folds open.
 When you abandon a file (starting to edit another one), the state of the folds
 is lost.  If you come back to the same file later, all manually opened and
 closed folds are back to their default.  When folds have been created
-manually, all folds are gone!  To save the folds use the |:mkview| command:  
+manually, all folds are gone!  To save the folds use the |:mkview| command: >
 
 	:mkview
 
 This will store the settings and other things that influence the view on the
 file.  You can change what is stored with the 'viewoptions' option.
-When you come back to the same file later, you can load the view again:  
+When you come back to the same file later, you can load the view again: >
 
 	:loadview
 
 You can store up to ten views on one file.  For example, to save the current
-setup as the third view and load the second view:  
+setup as the third view and load the second view: >
 
 	:mkview 3
 	:loadview 2
@@ -217,7 +217,7 @@ method.  This will create folds for every sequence of lines with the same
 indent.  Lines with a larger indent will become nested folds.  This works well
 with many programming languages.
 
-Try this by setting the 'foldmethod' option:  
+Try this by setting the 'foldmethod' option: >
 
 	:set foldmethod=indent
 
@@ -238,7 +238,7 @@ on the 'shiftwidth' option.  Each 'shiftwidth' worth of indent adds one to the
 depth of the fold.  This is called a fold level.
 
 When you use the |zr| and |zm| commands you actually increase or decrease the
-'foldlevel' option.  You could also set it directly:  
+'foldlevel' option.  You could also set it directly: >
 
 	:set foldlevel=3
 
@@ -273,7 +273,7 @@ Markers in the text are used to specify the start and end of a fold region.
 This gives precise control over which lines are included in a fold.  The
 disadvantage is that the text needs to be modified.
 
-Try it:  
+Try it: >
 
 	:set foldmethod=marker
 
@@ -335,7 +335,7 @@ This is similar to folding by indent, but instead of using the indent of a
 line a user function is called to compute the fold level of a line.  You can
 use this for text where something in the text indicates which lines belong
 together.  An example is an e-mail message where the quoted text is indicated
-by a ">" before the line.  To fold these quotes use this:  
+by a ">" before the line.  To fold these quotes use this: >
 
 	:set foldmethod=expr
 	:set foldexpr=strlen(substitute(substitute(getline(v:lnum),'\\s','',\"g\"),'[^>].*','',''))
@@ -355,12 +355,12 @@ Explanation for the 'foldexpr' used in the example (inside out):
 					is the number of '>'s found
 
 Note that a backslash must be inserted before every space, double quote and
-backslash for the ":set" command.  If this confuses you, do  
+backslash for the ":set" command.  If this confuses you, do >
 
 	:set foldexpr
 
 to check the actual resulting value.  To correct a complicated expression, use
-the command-line completion:  
+the command-line completion: >
 
 	:set foldexpr=<Tab>
 
@@ -376,7 +376,7 @@ More about folding by expression in the reference manual: |fold-expr|
 *28.9*	Folding unchanged lines
 
 This is useful when you set the 'diff' option in the same window.  The
-|-d| option does this for you.  Example:  
+|-d| option does this for you.  Example: >
 
 	:setlocal diff foldmethod=diff scrollbind nowrap foldlevel=1
 

@@ -34,7 +34,7 @@ have line-break problems.  The Vim editor automatically recognizes the
 different file formats and handles things properly behind your back.
    The option 'fileformats' contains the various formats that will be tried
 when a new file is edited.  The following command, for example, tells Vim to
-try Unix format first and MS-DOS format second:  
+try Unix format first and MS-DOS format second: >
 
 	:set fileformats=unix,dos
 
@@ -43,11 +43,11 @@ don't see anything if you edit a native file format.  Thus editing a Unix file
 on Unix won't result in a remark.  But when you edit a dos file, Vim will
 notify you of this:
 
-	"/tmp/test" [dos] 3L, 71C  
+	"/tmp/test" [dos] 3L, 71C ~
 
 For a Mac file you would see "[mac]".
    The detected file format is stored in the 'fileformat' option.  To see
-which format you have, execute the following command:  
+which format you have, execute the following command: >
 
 	:set fileformat?
 
@@ -69,7 +69,7 @@ have a <NL> character halfway in a line.
 containing both <CR> and <NL> characters is a Mac or a Unix file.  Therefore,
 Vim assumes that on Unix you probably won't edit a Mac file, and doesn't check
 for this type of file.  To check for this format anyway, add "mac" to
-'fileformats':  
+'fileformats': >
 
 	:set fileformats+=mac
 
@@ -82,7 +82,7 @@ OVERRULING THE FORMAT
 If you use the good old Vi and try to edit an MS-DOS format file, you will
 find that each line ends with a ^M character.  (^M is <CR>).  The automatic
 detection avoids this.  Suppose you do want to edit the file that way?  Then
-you need to overrule the format:  
+you need to overrule the format: >
 
 	:edit ++ff=unix file.txt
 
@@ -98,11 +98,11 @@ CONVERSION
 You can use the 'fileformat' option to convert from one file format to
 another.  Suppose, for example, that you have an MS-DOS file named README.TXT
 that you want to convert to Unix format.  Start by editing the MS-DOS format
-file:  
+file: >
 	vim README.TXT
 
 Vim will recognize this as a dos format file.  Now change the file format to
-Unix:  
+Unix: >
 
 	:set fileformat=unix
 	:write
@@ -115,13 +115,13 @@ The file is written in Unix format.
 Someone sends you an e-mail message, which refers to a file by its URL.  For
 example:
 
-	You can find the information here:  
-		ftp://ftp.vim.org/pub/vim/README  
+	You can find the information here: ~
+		ftp://ftp.vim.org/pub/vim/README ~
 
 You could start a program to download the file, save it on your local disk and
 then start Vim to edit it.
    There is a much simpler way.  Move the cursor to any character of the URL.
-Then use this command:  
+Then use this command: >
 
 	gf
 
@@ -159,7 +159,7 @@ there are a few restrictions.  But you can read a file, change a character and
 write it back, with the result that only that one character was changed and
 the file is identical otherwise.
    To make sure that Vim does not use its clever tricks in the wrong way, add
-the "-b" argument when starting Vim:  
+the "-b" argument when starting Vim: >
 
 	vim -b datafile
 
@@ -171,7 +171,7 @@ Binary mode can be used to change a message in a program.  Be careful not to
 insert or delete any characters, it would stop the program from working.  Use
 "R" to enter replace mode.
 
-Many characters in the file will be unprintable.  To see them in Hex format:  
+Many characters in the file will be unprintable.  To see them in Hex format: >
 
 	:set display=uhex
 
@@ -179,29 +179,29 @@ Otherwise, the "ga" command can be used to see the value of the character
 under the cursor.  The output, when the cursor is on an <Esc>, looks like
 this:
 
-	<^[>  27,  Hex 1b,  Octal 033  
+	<^[>  27,  Hex 1b,  Octal 033 ~
 
 There might not be many line breaks in the file.  To get some overview switch
-the 'wrap' option off:  
+the 'wrap' option off: >
 
 	:set nowrap
 
 
 BYTE POSITION
 
-To see on which byte you are in the file use this command:  
+To see on which byte you are in the file use this command: >
 
 	g CTRL-G
 
 The output is verbose:
 
-    Col 9-16 of 9-16; Line 277 of 330; Word 1806 of 2058; Byte 10580 of 12206  
+    Col 9-16 of 9-16; Line 277 of 330; Word 1806 of 2058; Byte 10580 of 12206 ~
 
 The last two numbers are the byte position in the file and the total number of
 bytes.  This takes into account how 'fileformat' changes the number of bytes
 that a line break uses.
     To move to a specific byte in the file, use the "go" command.  For
-example, to move to byte 2345:  
+example, to move to byte 2345: >
 
 	2345go
 
@@ -211,25 +211,25 @@ USING XXD
 A real binary editor shows the text in two ways: as it is and in hex format.
 You can do this in Vim by first converting the file with the "xxd" program.
 This comes with Vim.
-   First edit the file in binary mode:  
+   First edit the file in binary mode: >
 
 	vim -b datafile
 
-Now convert the file to a hex dump with xxd:  
+Now convert the file to a hex dump with xxd: >
 
 	:%!xxd
 
 The text will look like this:
 
-	0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49  ....9..;..tt.+NI  
-	0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30  K,.`.....b..4^.0  
-	0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9  7;'1.".....i.59.  
+	0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49  ....9..;..tt.+NI ~
+	0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30  K,.`.....b..4^.0 ~
+	0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9  7;'1.".....i.59. ~
 
 You can now view and edit the text as you like.  Vim treats the information as
 ordinary text.  Changing the hex does not cause the printable character to be
 changed, or the other way around.
    Finally convert it back with:
- 
+>
 	:%!xxd -r
 
 Only changes in the hex part are used.  Changes in the printable text part on

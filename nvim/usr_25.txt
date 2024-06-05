@@ -29,7 +29,7 @@ you want to decide where the line ends.  It is not so good when you are
 creating documentation and want the text to be at most 70 character wide.
    If you set the 'textwidth' option, Vim automatically inserts line breaks.
 Suppose, for example, that you want a very narrow column of only 30
-characters.  You need to execute the following command:  
+characters.  You need to execute the following command: >
 
 	:set textwidth=30
 
@@ -37,25 +37,25 @@ Now you start typing (ruler added):
 
 		 1	   2	     3
 	12345678901234567890123456789012345
-	I taught programming for a whi  
+	I taught programming for a whi ~
 
 If you type "l" next, this makes the line longer than the 30-character limit.
 When Vim sees this, it inserts a line break and you get the following:
 
 		 1	   2	     3
 	12345678901234567890123456789012345
-	I taught programming for a  
-	whil  
+	I taught programming for a ~
+	whil ~
 
 Continuing on, you can type in the rest of the paragraph:
 
 		 1	   2	     3
 	12345678901234567890123456789012345
-	I taught programming for a  
-	while. One time, I was stopped  
-	by the Fort Worth police,  
-	because my homework was too  
-	hard. True story.  
+	I taught programming for a ~
+	while. One time, I was stopped ~
+	by the Fort Worth police, ~
+	because my homework was too ~
+	hard. True story. ~
 
 You do not have to type newlines; Vim puts them in automatically.
 
@@ -73,16 +73,16 @@ all you get is a short line:
 
 		 1	   2	     3
 	12345678901234567890123456789012345
-	I taught for a  
-	while. One time, I was stopped  
-	by the Fort Worth police,  
-	because my homework was too  
-	hard. True story.  
+	I taught for a ~
+	while. One time, I was stopped ~
+	by the Fort Worth police, ~
+	because my homework was too ~
+	hard. True story. ~
 
 This does not look good.  To get the paragraph into shape you use the "gq"
 operator.
    Let's first use this with a Visual selection.  Starting from the first
-line, type:  
+line, type: >
 
 	v4jgq
 
@@ -91,11 +91,11 @@ the "gq" operator.  The result is:
 
 		 1	   2	     3
 	12345678901234567890123456789012345
-	I taught for a while. One  
-	time, I was stopped by the  
-	Fort Worth police, because my  
-	homework was too hard. True  
-	story.  
+	I taught for a while. One ~
+	time, I was stopped by the ~
+	Fort Worth police, because my ~
+	homework was too hard. True ~
+	story. ~
 
 Note: there is a way to do automatic formatting for specific types of text
 layouts, see |auto-format|.
@@ -106,14 +106,14 @@ text it works on: With Visual mode, with a movement and with a text object.
 you have to know the line count.  A more useful motion command is "}".  This
 moves to the end of a paragraph.  Thus "gq}" formats from the cursor to the
 end of the current paragraph.
-   A very useful text object to use with "gq" is the paragraph.  Try this:  
+   A very useful text object to use with "gq" is the paragraph.  Try this: >
 
 	gqap
 
 "ap" stands for "a-paragraph".  This formats the text of one paragraph
 (separated by empty lines).  Also the part before the cursor.
    If you have your paragraphs separated by empty lines, you can format the
-whole file by typing this:  
+whole file by typing this: >
 
 	gggqG
 
@@ -132,43 +132,43 @@ if your text can't be properly formatted with Vim's builtin command.  See the
 ==============================================================================
 *25.2*	Aligning text
 
-To center a range of lines, use the following command:  
+To center a range of lines, use the following command: >
 
 	:{range}center [width]
 
 {range} is the usual command-line range.  [width] is an optional line width to
 use for centering.  If [width] is not specified, it defaults to the value of
 'textwidth'.  (If 'textwidth' is 0, the default is 80.)
-   For example:  
+   For example: >
 
 	:1,5center 40
 
 results in the following:
 
-       I taught for a while. One  
-       time, I was stopped by the  
-     Fort Worth police, because my  
-      homework was too hard. True  
-		 story.  
+       I taught for a while. One ~
+       time, I was stopped by the ~
+     Fort Worth police, because my ~
+      homework was too hard. True ~
+		 story. ~
 
 
 RIGHT ALIGNMENT
 
-Similarly, the ":right" command right-justifies the text:  
+Similarly, the ":right" command right-justifies the text: >
 
 	:1,5right 37
 
 gives this result:
 
-	    I taught for a while. One  
-	   time, I was stopped by the  
-	Fort Worth police, because my  
-	  homework was too hard. True  
-			       story.  
+	    I taught for a while. One ~
+	   time, I was stopped by the ~
+	Fort Worth police, because my ~
+	  homework was too hard. True ~
+			       story. ~
 
 LEFT ALIGNMENT
 
-Finally there is this command:  
+Finally there is this command: >
 
 	:{range}left [margin]
 
@@ -176,29 +176,29 @@ Unlike ":center" and ":right", however, the argument to ":left" is not the
 length of the line.  Instead it is the left margin.  If it is omitted, the
 text will be put against the left side of the screen (using a zero margin
 would do the same).  If it is 5, the text will be indented 5 spaces.  For
-example, use these commands:  
+example, use these commands: >
 
 	:1left 5
 	:2,5left
 
 This results in the following:
 
-	     I taught for a while. One  
-	time, I was stopped by the  
-	Fort Worth police, because my  
-	homework was too hard. True  
-	story.  
+	     I taught for a while. One ~
+	time, I was stopped by the ~
+	Fort Worth police, because my ~
+	homework was too hard. True ~
+	story. ~
 
 
 JUSTIFYING TEXT
 
 Vim has no built-in way of justifying text.  However, there is a neat macro
 package that does the job.  To use this package, execute the following
-command:  
+command: >
 
 	:packadd justify
 
-Or put this line in your |vimrc|:  
+Or put this line in your |vimrc|: >
 
 	packadd! justify
 
@@ -207,7 +207,7 @@ text, highlight the text in Visual mode and then execute "_j".
    Look in the file for more explanations.  To go there, do "gf" on this name:
 $VIMRUNTIME/pack/dist/opt/justify/plugin/justify.vim.
 
-An alternative is to filter the text through an external program.  Example:  
+An alternative is to filter the text through an external program.  Example: >
 
 	:%!fmt
 
@@ -218,11 +218,11 @@ Indents can be used to make text stand out from the rest.  The example texts
 in this manual, for example, are indented by eight spaces or a tab.  You would
 normally enter this by typing a tab at the start of each line.  Take this
 text:
-	the first line  
-	the second line  
+	the first line ~
+	the second line ~
 
 This is entered by typing a tab, some text, <Enter>, tab and more text.
-   The 'autoindent' option inserts indents automatically:  
+   The 'autoindent' option inserts indents automatically: >
 
 	:set autoindent
 
@@ -236,14 +236,14 @@ To increase the amount of indent in a line, use the ">" operator.  Often this
 is used as ">>", which adds indent to the current line.
    The amount of indent added is specified with the 'shiftwidth' option.  The
 default value is 8.  To make ">>" insert four spaces worth of indent, for
-example, type this:  
+example, type this: >
 
 	:set shiftwidth=4
 
 When used on the second line of the example text, this is what you get:
 
-	the first line  
-	    the second line  
+	the first line ~
+	    the second line ~
 
 "4>>" will increase the indent of four lines.
 
@@ -252,7 +252,7 @@ TABSTOP
 
 If you want to make indents a multiple of 4, you set 'shiftwidth' to 4.  But
 when pressing a <Tab> you still get 8 spaces worth of indent.  To change this,
-set the 'softtabstop' option:  
+set the 'softtabstop' option: >
 
 	:set softtabstop=4
 
@@ -275,7 +275,7 @@ You edit a file which was written with a tabstop of 3.  In Vim it looks ugly,
 because it uses the normal tabstop value of 8.  You can fix this by setting
 'tabstop' to 3.  But you have to do this every time you edit this file.
    Vim can change the use of tabstops in your file.  First, set 'tabstop' to
-make the indents look good, then use the ":retab" command:  
+make the indents look good, then use the ":retab" command: >
 
 	:set tabstop=3
 	:retab 8
@@ -301,7 +301,7 @@ to the right.
 the text to show it.  This is like moving a viewport over the text in the
 horizontal direction.
    By default, Vim does not display a horizontal scrollbar in the GUI.  If you
-want to enable one, use the following command:  
+want to enable one, use the following command: >
 
 	:set guioptions+=b
 
@@ -326,7 +326,7 @@ currently visible.  The "window"s below the text indicate the text that is
 visible after the command left of it.
 
 			      `|<-- current window -->|`
-		some long text, part of which is visible in the window  
+		some long text, part of which is visible in the window ~
 	ze	  `|<--	   window     -->|`
 	zH	   `|<--     window     -->|`
 	4zh		  `|<--	   window     -->|`
@@ -351,7 +351,7 @@ scroll:
 	g$		to last visible character in this line
 
 		`|<--	  window     -->|`
-	some long    text, part of which is visible in one line  
+	some long    text, part of which is visible in one line ~
 		 g0  g^    gm	   gM g$
 
 
@@ -365,7 +365,7 @@ broken halfway, which makes them hard to read.
 'linebreak' option.  Vim then breaks lines at an appropriate place when
 displaying the line.  The text in the file remains unchanged.
    Without 'linebreak' text might look like this:
- 
+>
 	+---------------------------------+
 	|letter generation program for a b|
 	|ank.  They wanted to send out a s|
@@ -373,13 +373,13 @@ displaying the line.  The text in the file remains unchanged.
 	|eir richest 1000 customers.  Unfo|
 	|rtunately for the programmer, he |
 	+---------------------------------+
- 
-After:  
+<
+After: >
 
 	:set linebreak
 
 it looks like this:
- 
+>
 	+---------------------------------+
 	|letter generation program for a  |
 	|bank.  They wanted to send out a |
@@ -387,7 +387,7 @@ it looks like this:
 	|their richest 1000 customers.    |
 	|Unfortunately for the programmer,|
 	+---------------------------------+
- 
+<
 Related options:
 'breakat' specifies the characters where a break can be inserted.
 'showbreak' specifies a string to show at the start of broken line.
@@ -402,7 +402,7 @@ a long line, this means moving a lot of screen lines at once.
 doesn't wrap they do the same as "j" and "k".  When the line does wrap, they
 move to a character displayed one line below or above.
    You might like to use these mappings, which bind these movement commands to
-the cursor keys:  
+the cursor keys: >
 
 	:map <Up> gk
 	:map <Down> gj
@@ -412,7 +412,7 @@ TURNING A PARAGRAPH INTO ONE LINE			*edit-paragraph-join*
 
 If you want to import text into a program like MS-Word, each paragraph should
 be a single line.  If your paragraphs are currently separated with empty
-lines, this is how you turn each paragraph into a single line:  
+lines, this is how you turn each paragraph into a single line: >
 
 	:g/./,/^$/join
 
@@ -426,7 +426,7 @@ That looks complicated.  Let's break it up in pieces:
 			into one line.
 
 Starting with this text, containing eight lines broken at column 30:
- 
+>
 	+----------------------------------+
 	|A letter generation program	   |
 	|for a bank.  They wanted to	   |
@@ -437,9 +437,9 @@ Starting with this text, containing eight lines broken at column 30:
 	|customers.  Unfortunately for	   |
 	|the programmer,		   |
 	+----------------------------------+
- 
+<
 You end up with two lines:
- 
+>
 	+----------------------------------+
 	|A letter generation program for a |
 	|bank.	They wanted to send out a s|
@@ -447,10 +447,10 @@ You end up with two lines:
 	|To their richest 1000 customers.  |
 	|Unfortunately for the programmer, |
 	+----------------------------------+
- 
+<
 Note that this doesn't work when the separating line is blank but not empty;
 when it contains spaces and/or tabs.  This command does work with blank lines:
- 
+>
 	:g/\S/,/^\s*$/join
 
 This still requires a blank or empty line at the end of the file for the last
@@ -461,28 +461,28 @@ paragraph to be joined.
 
 Suppose you are editing a table with four columns:
 
-	nice table	  test 1	test 2	    test 3  
-	input A		  0.534  
-	input B		  0.913  
+	nice table	  test 1	test 2	    test 3 ~
+	input A		  0.534 ~
+	input B		  0.913 ~
 
 You need to enter numbers in the third column.  You could move to the second
 line, use "A", enter a lot of spaces and type the text.
-   For this kind of editing there is a special option:  
+   For this kind of editing there is a special option: >
 
 	set virtualedit=all
 
 Now you can move the cursor to positions where there isn't any text.  This is
 called "virtual space".  Editing a table is a lot easier this way.
-   Move the cursor by searching for the header of the last column:  
+   Move the cursor by searching for the header of the last column: >
 
 	/test 3
 
 Now press "j" and you are right where you can enter the value for "input A".
 Typing "0.693" results in:
 
-	nice table	  test 1     test 2	 test 3  
-	input A		  0.534			 0.693  
-	input B		  0.913  
+	nice table	  test 1     test 2	 test 3 ~
+	input A		  0.534			 0.693 ~
+	input B		  0.913 ~
 
 Vim has automatically filled the gap in front of the new text for you.  Now,
 to enter the next field in this column use "Bj".  "B" moves back to the start
@@ -512,14 +512,14 @@ placed before the "test 1" column.  Do this in seven steps:
 
 The result should be:
 
-	nice table	  test 3    test 1     test 2	   test 3  
-	input A		  0.693     0.534		   0.693  
-	input B			    0.913  
+	nice table	  test 3    test 1     test 2	   test 3 ~
+	input A		  0.693     0.534		   0.693 ~
+	input B			    0.913 ~
 
 Notice that the whole "test 1" column was shifted right, also the line where
 the "test 3" column didn't have text.
 
-Go back to non-virtual cursor movements with:  
+Go back to non-virtual cursor movements with: >
 
 	:set virtualedit=
 
@@ -532,23 +532,23 @@ around.  Another method can be used: Virtual Replace mode.
    Suppose you have a line in a table that contains both tabs and other
 characters.  Use "rx" on the first tab:
 
-	inp	0.693   0.534	0.693  
+	inp	0.693   0.534	0.693 ~
 
 	       |
 	   rx  |
 	       V
 
-	inpx0.693   0.534	0.693  
+	inpx0.693   0.534	0.693 ~
 
 The layout is messed up.  To avoid that, use the "gr" command:
 
-	inp	0.693   0.534	0.693  
+	inp	0.693   0.534	0.693 ~
 
 	       |
 	  grx  |
 	       V
 
-	inpx	0.693   0.534	0.693  
+	inpx	0.693   0.534	0.693 ~
 
 What happens is that the "gr" command makes sure the new character takes the
 right amount of screen space.  Extra spaces or tabs are inserted to fill the
@@ -559,23 +559,23 @@ tab is inserted.
 to go to Replace mode (see |04.9|).  This messes up the layout and replaces
 the wrong characters:
 
-	inp	0	0.534	0.693  
+	inp	0	0.534	0.693 ~
 
 		|
 	 R0.786 |
 		V
 
-	inp	0.78634	0.693  
+	inp	0.78634	0.693 ~
 
 The "gR" command uses Virtual Replace mode.  This preserves the layout:
 
-	inp	0	0.534	0.693  
+	inp	0	0.534	0.693 ~
 
 		|
 	gR0.786 |
 		V
 
-	inp	0.786	0.534	0.693  
+	inp	0.786	0.534	0.693 ~
 
 ==============================================================================
 

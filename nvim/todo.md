@@ -1,10 +1,14 @@
 # RTFM - Nvim
 
+## Getting Started
+
 - [x] usr_01.txt - About the manuals
 - [x] usr_02.txt - The first steps in Vim
 - [x] usr_03.txt - Moving around
+
   - w and W has a difference, w is every stop at the edge of 2 kinds of word while chad W goes through the next blank and then stop
   - marks are cool and very confusing
+
 - [x] usr_04.txt - Making small changes
 - [x] usr_05.txt - Set your settings
 - [x] usr_06.txt - Using syntax highlighting
@@ -73,8 +77,8 @@
 
 ## Tuning Vim
 
-- [ ] usr_40.txt - Make new commands
-- [ ] usr_41.txt - Write a Vim script
+- [x] usr_40.txt - Make new commands
+- [x] usr_41.txt - Write a Vim script
 - [ ] usr_42.txt - Add new menus
 - [ ] usr_43.txt - Using filetypes
 - [ ] usr_44.txt - Your own syntax highlighted

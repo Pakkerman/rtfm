@@ -29,13 +29,13 @@ same text.
    Suppose you have some lines where you want to change "2001" to "2002" and
 "2000" to "2001":
 
-	The financial results for 2001 are better  
-	than for 2000.  The income increased by 50%,  
-	even though 2001 had more rain than 2000.  
-			2000		2001  
-	income		45,403		66,234  
+	The financial results for 2001 are better ~
+	than for 2000.  The income increased by 50%, ~
+	even though 2001 had more rain than 2000. ~
+			2000		2001 ~
+	income		45,403		66,234 ~
 
-First change "2001" to "2002".  Select the lines in Visual mode, and use:  
+First change "2001" to "2002".  Select the lines in Visual mode, and use: >
 
 	:s/2001/2002/g
 
@@ -50,17 +50,17 @@ When repeating the change of one number into another, you often have a fixed
 offset.  In the example above, one was added to each year.  Instead of typing
 a substitute command for each year that appears, the CTRL-A command can be
 used.
-   Using the same text as above, search for a year:  
+   Using the same text as above, search for a year: >
 
 	/19[0-9][0-9]\|20[0-9][0-9]
 
 Now press CTRL-A.  The year will be increased by one:
 
-	The financial results for 2002 are better  
-	than for 2000.  The income increased by 50%,  
-	even though 2001 had more rain than 2000.  
-			2000		2001  
-	income		45,403		66,234  
+	The financial results for 2002 are better ~
+	than for 2000.  The income increased by 50%, ~
+	even though 2001 had more rain than 2000. ~
+			2000		2001 ~
+	income		45,403		66,234 ~
 
 Use "n" to find the next year, and press "." to repeat the CTRL-A ("." is a
 bit quicker to type).  Repeat "n" and "." for all years that appear.
@@ -68,11 +68,11 @@ bit quicker to type).  Repeat "n" and "." for all years that appear.
 Adding more than one can be done by prepending the number to CTRL-A.  Suppose
 you have this list:
 
-	1.  item four  
-	2.  item five  
-	3.  item six  
+	1.  item four ~
+	2.  item five ~
+	3.  item six ~
 
-Move the cursor to "1." and type:  
+Move the cursor to "1." and type: >
 
 	3 CTRL-A
 
@@ -82,7 +82,7 @@ other numbers.
 The CTRL-X command does subtraction in a similar way.
 
 The behavior of CTRL-A and CTRL-X depends on the value of |'nrformats'|. For
-example, if you use:  
+example, if you use: >
 
         :set nrformats+=octal
 
@@ -95,12 +95,12 @@ identified as an octal number.
 Suppose you have a variable called "x_cnt" and you want to change it to
 "x_counter".  This variable is used in several of your C files.  You need to
 change it in all files.  This is how you do it.
-   Put all the relevant files in the argument list:  
+   Put all the relevant files in the argument list: >
 
 	:args *.c
- 
+<
 This finds all C files and edits the first one.  Now you can perform a
-substitution command on all these files:  
+substitution command on all these files: >
 
 	:argdo %s/\<x_cnt\>/x_counter/ge | update
 
@@ -134,14 +134,14 @@ not result in clear, commented command files; so here you will use Ex mode
 instead.  This mode gives you a nice command-line interface that makes it easy
 to put into a batch file.  ("Ex command" is just another name for a
 command-line (:) command.)
-   The Ex mode commands you need are as follows:  
+   The Ex mode commands you need are as follows: >
 
 	%s/-person-/Jones/g
 	write tempfile
 	quit
 
 You put these commands in the file "change.vim".  Now to run the editor in
-batch mode, use this shell script:  
+batch mode, use this shell script: >
 
 	for file in *.txt; do
 	  vim -e -s $file < change.vim
@@ -162,14 +162,14 @@ READING FROM STDIN
 
 Vim can read text on standard input.  Since the normal way is to read commands
 there, you must tell Vim to read text instead.  This is done by passing the
-"-" argument in place of a file.  Example:  
+"-" argument in place of a file.  Example: >
 
 	ls | vim -
 
 This allows you to edit the output of the "ls" command, without first saving
 the text in a file.
    If you use the standard input to read text from, you can use the "-S"
-argument to read a script:  
+argument to read a script: >
 
 	producer | vim -S change.vim -
 
@@ -177,10 +177,10 @@ argument to read a script:
 NORMAL MODE SCRIPTS
 
 If you really want to use Normal mode commands in a script, you can use it
-like this:  
+like this: >
 
 	vim -s script file.txt ...
- 
+<
 	Note:
 	"-s" has a different meaning when it is used without "-e".  Here it
 	means to source the "script" as Normal mode commands.  When used with
@@ -193,7 +193,7 @@ the cursor to the next line.
    To create the script you can edit the script file and type the commands.
 You need to imagine what the result would be, which can be a bit difficult.
 Another way is to record the commands while you perform them manually.  This
-is how you do that:  
+is how you do that: >
 
 	vim -w script file.txt ...
 

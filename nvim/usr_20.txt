@@ -30,13 +30,13 @@ search command.
 The most obvious way to edit the command you type is by pressing the <BS> key.
 This erases the character before the cursor.  To erase another character,
 typed earlier, first move the cursor with the cursor keys.
-   For example, you have typed this:  
+   For example, you have typed this: >
 
 	:s/col/pig/
 
 Before you hit <Enter>, you notice that "col" should be "cow".  To correct
 this, you type <Left> five times.  The cursor is now just after "col".  Type
-<BS> and "w" to correct:  
+<BS> and "w" to correct: >
 
 	:s/cow/pig/
 
@@ -65,11 +65,11 @@ DELETING
 As mentioned, <BS> deletes the character before the cursor.  To delete a whole
 word use CTRL-W.
 
-	/the fine pig  
+	/the fine pig ~
 
 		     CTRL-W
 
-	/the fine  
+	/the fine ~
 
 CTRL-U removes all text, thus allows you to start all over again.
 
@@ -79,19 +79,19 @@ OVERSTRIKE
 The <Insert> key toggles between inserting characters and replacing the
 existing ones.  Start with this text:
 
-	/the fine pig  
+	/the fine pig ~
 
 Move the cursor to the start of "fine" with <S-Left> twice (or <Left> eight
 times, if <S-Left> doesn't work).  Now press <Insert> to switch to overstrike
 and type "great":
 
-	/the greatpig  
+	/the greatpig ~
 
 Oops, we lost the space.  Now, don't use <BS>, because it would delete the
 "t" (this is different from Replace mode).  Instead, press <Insert> to switch
 from overstrike to inserting, and type the space:
 
-	/the great pig  
+	/the great pig ~
 
 
 CANCELLING
@@ -123,7 +123,7 @@ command.  Instead ":set" can be abbreviated to ":se".
    When the shorter form of a command could be used for two commands, it
 stands for only one of them.  There is no logic behind which one, you have to
 learn them.  In the help files the shortest form that works is mentioned.  For
-example:  
+example: >
 
 	:s[ubstitute]
 
@@ -148,7 +148,7 @@ SHORT OPTION NAMES
 In the user manual the long version of the option names is used.  Many options
 also have a short name.  Unlike ":" commands, there is only one short name
 that works.  For example, the short name of 'autoindent' is 'ai'.  Thus these
-two commands do the same thing:  
+two commands do the same thing: >
 
 	:set autoindent
 	:set ai
@@ -167,11 +167,11 @@ Suppose you have a directory that contains these files:
 	intro.txt
 	bodyofthepaper.txt
 
-To edit the last one, you use the command:  
+To edit the last one, you use the command: >
 
 	:edit bodyofthepaper.txt
 
-It's easy to type this wrong.  A much quicker way is:  
+It's easy to type this wrong.  A much quicker way is: >
 
 	:edit b<Tab>
 
@@ -180,23 +180,23 @@ completion of the word before the cursor.  In this case "b".  Vim looks in the
 directory and finds only one file that starts with a "b".  That must be the
 one you are looking for, thus Vim completes the file name for you.
 
-Now type:  
+Now type: >
 
 	:edit i<Tab>
 
-Vim will beep, and give you:  
+Vim will beep, and give you: >
 
 	:edit info.txt
 
 The beep means that Vim has found more than one match.  It then uses the first
-match it found (alphabetically).  If you press <Tab> again, you get:  
+match it found (alphabetically).  If you press <Tab> again, you get: >
 
 	:edit intro.txt
 
 Thus, if the first <Tab> doesn't give you the file you were looking for, press
 it again.  If there are more matches, you will see them all, one at a time.
    If you press <Tab> on the last matching entry, you will go back to what you
-first typed:  
+first typed: >
 
 	:edit i
 
@@ -214,7 +214,7 @@ Use CTRL-P to go through the list in the other direction:
 
 CONTEXT
 
-When you type ":set i" instead of ":edit i" and press <Tab> you get:  
+When you type ":set i" instead of ":edit i" and press <Tab> you get: >
 
 	:set icon
 
@@ -223,15 +223,15 @@ sensitive completion.  The kind of words Vim will look for depends on the
 command before it.  Vim knows that you cannot use a file name just after a
 ":set" command, but you can use an option name.
    Again, if you repeat typing the <Tab>, Vim will cycle through all matches.
-There are quite a few, it's better to type more characters first:  
+There are quite a few, it's better to type more characters first: >
 
 	:set isk<Tab>
 
-Gives:  
+Gives: >
 
 	:set iskeyword
 
-Now type "=" and press <Tab>:  
+Now type "=" and press <Tab>: >
 
 	:set iskeyword=@,48-57,_,192-255
 
@@ -247,11 +247,11 @@ a <Tab> inserted (displayed as ^I).
 LIST MATCHES
 
 When there are many matches, you would like to see an overview.  Do this by
-pressing CTRL-D.  For example, pressing CTRL-D after:  
+pressing CTRL-D.  For example, pressing CTRL-D after: >
 
 	:set is
 
-results in:  
+results in: >
 
 	:set is
 	incsearch  isfname    isident    iskeyword  isprint
@@ -297,7 +297,7 @@ input() function.  |cmdline-history|
 
 Suppose you have done a ":set" command, typed ten more colon commands and then
 want to repeat that ":set" command again.  You could press ":" and then ten
-times <Up>.  There is a quicker way:  
+times <Up>.  There is a quicker way: >
 
 	:se<Up>
 
@@ -311,12 +311,12 @@ the history.  Only matching lines will be used.
    If you do not find the line you were looking for, use <Down> to go back to
 what you typed and correct that.  Or use CTRL-U to start all over again.
 
-To see all the lines in the history:  
+To see all the lines in the history: >
 
 	:history
 
 That's the history of ":" commands.  The search history is displayed with this
-command:  
+command: >
 
 	:history /
 
@@ -332,13 +332,13 @@ Insert mode.  It doesn't allow many commands to change the text.  For most
 commands that's OK, but sometimes you have to type a complicated command.
 That's where the command line window is useful.
 
-Open the command line window with this command:  
+Open the command line window with this command: >
 
 	q:
 
 Vim now opens a (small) window at the bottom.  It contains the command line
 history, and an empty line at the end:
- 
+>
 	+-------------------------------------+
 	|other window			      |
 	|~				      |
@@ -353,12 +353,12 @@ history, and an empty line at the end:
 	|command-line=========================|
 	|				      |
 	+-------------------------------------+
- 
+<
 You are now in Normal mode.  You can use the "hjkl" keys to move around.  For
 example, move up with "5k" to the ":e config.h.in" line.  Type "$h" to go to
 the "i" of "in" and type "cwout".  Now you have changed the line to:
 
-	:e config.h.out  
+	:e config.h.out ~
 
 Now press <Enter> and this command will be executed.  The command line window
 will close.

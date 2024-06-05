@@ -26,13 +26,13 @@ Table of contents: |usr_toc.txt|
 ==============================================================================
 *08.1*	Split a window
 
-The easiest way to open a new window is to use the following command:  
+The easiest way to open a new window is to use the following command: >
 
 	:split
 
 This command splits the screen into two windows and leaves the cursor in the
 top one:
- 
+>
 	+----------------------------------+
 	|/* file one.c */		   |
 	|~				   |
@@ -43,7 +43,7 @@ top one:
 	|one.c=============================|
 	|				   |
 	+----------------------------------+
- 
+<
 What you see here is two windows on the same file.  The line with "====" is
 the status line.  It displays information about the window above it.  (In
 practice the status line will be in reverse video.)
@@ -59,8 +59,9 @@ thing, in case you let go of the CTRL key a bit later.)
 
 CLOSE THE WINDOW
 
-To close a window, use the command:  
-:close
+To close a window, use the command: >
+
+	:close
 
 Actually, any command that quits editing a file works, like ":quit" and "ZZ".
 But ":close" prevents you from accidentally exiting Vim when you close the
@@ -70,7 +71,7 @@ last window.
 CLOSING ALL OTHER WINDOWS
 
 If you have opened a whole bunch of windows, but now want to concentrate on
-one of them, this command will be useful:  
+one of them, this command will be useful: >
 
 	:only
 
@@ -82,11 +83,11 @@ closed.
 *08.2*	Split a window on another file
 
 The following command opens a second window and starts editing the given file:
- 
+>
 	:split two.c
 
 If you were editing one.c, then the result looks like this:
- 
+>
 	+----------------------------------+
 	|/* file two.c */		   |
 	|~				   |
@@ -97,8 +98,8 @@ If you were editing one.c, then the result looks like this:
 	|one.c=============================|
 	|				   |
 	+----------------------------------+
- 
-To open a window on a new, empty file, use this:  
+<
+To open a window on a new, empty file, use this: >
 
 	:new
 
@@ -110,7 +111,7 @@ you like.
 
 The ":split" command can take a number argument.  If specified, this will be
 the height of the new window.  For example, the following opens a new window
-three lines high and starts editing the file alpha.c:  
+three lines high and starts editing the file alpha.c: >
 
 	:3split alpha.c
 
@@ -118,18 +119,18 @@ For existing windows you can change the size in several ways.  When you have a
 working mouse, it is easy: Move the mouse pointer to the status line that
 separates two windows, and drag it up or down.
 
-To increase the size of a window:  
+To increase the size of a window: >
 
 	CTRL-W +
 
-To decrease it:  
+To decrease it: >
 
 	CTRL-W -
 
 Both of these commands take a count and increase or decrease the window size
 by that many lines.  Thus "4 CTRL-W +" make the window four lines higher.
 
-To set the window height to a specified number of lines:  
+To set the window height to a specified number of lines: >
 
 	{height}CTRL-W _
 
@@ -161,15 +162,15 @@ when a window is closed or opened.
 *08.4*	Vertical splits
 
 The ":split" command creates the new window above the current one.  To make
-the window appear at the left side, use:  
+the window appear at the left side, use: >
 
 	:vsplit
 
-or:  
+or: >
 	:vsplit two.c
 
 The result looks something like this:
- 
+>
 	+--------------------------------------+
 	|/* file two.c */   |/* file one.c */  |
 	|~		    |~		       |
@@ -178,12 +179,12 @@ The result looks something like this:
 	|two.c===============one.c=============|
 	|				       |
 	+--------------------------------------+
- 
+<
 Actually, the | lines in the middle will be in reverse video.  This is called
 the vertical separator.  It separates the two windows left and right of it.
 
 There is also the ":vnew" command, to open a vertically split window on a new,
-empty file.  Another way to do this:  
+empty file.  Another way to do this: >
 
 	:vertical new
 
@@ -217,7 +218,7 @@ cursor keys can also be used, if you like.
 You have split a few windows, but now they are in the wrong place.  Then you
 need a command to move the window somewhere else.  For example, you have three
 windows like this:
- 
+>
 	+----------------------------------+
 	|/* file two.c */		   |
 	|~				   |
@@ -232,9 +233,9 @@ windows like this:
 	|one.c=============================|
 	|				   |
 	+----------------------------------+
- 
+<
 Clearly the last one should be at the top.  Go to that window (using CTRL-W w)
-and then type this command:  
+and then type this command: >
 
 	CTRL-W K
 
@@ -243,7 +244,7 @@ the very top.  You will notice that K is again used for moving upwards.
    When you have vertical splits, CTRL-W K will move the current window to the
 top and make it occupy the full width of the Vim window.  If this is your
 layout:
- 
+>
 	+-------------------------------------------+
 	|/* two.c */  |/* three.c */  |/* one.c */  |
 	|~	      |~	      |~	    |
@@ -254,9 +255,9 @@ layout:
 	|two.c=========three.c=========one.c========|
 	|					    |
 	+-------------------------------------------+
- 
+<
 Then using CTRL-W K in the middle window (three.c) will result in:
- 
+>
 	+-------------------------------------------+
 	|/* three.c */				    |
 	|~					    |
@@ -267,7 +268,7 @@ Then using CTRL-W K in the middle window (three.c) will result in:
 	|two.c==================one.c===============|
 	|					    |
 	+-------------------------------------------+
- 
+<
 The other three similar commands (you can probably guess these now):
 
 	CTRL-W H	move window to the far left
@@ -278,7 +279,7 @@ The other three similar commands (you can probably guess these now):
 *08.6*	Commands for all windows
 
 When you have several windows open and you want to quit Vim, you can close
-each window separately.  A quicker way is using this command:  
+each window separately.  A quicker way is using this command: >
 
 	:qall
 
@@ -288,7 +289,7 @@ changes.  You can then either use ":write" to save the changes, or ":quit!" to
 throw them away.
 
 If you know there are windows with changes, and you want to save all these
-changes, use this command:  
+changes, use this command: >
 
 	:wall
 
@@ -296,12 +297,12 @@ This stands for "write all".  But actually, it only writes files with
 changes.  Vim knows it doesn't make sense to write files that were not
 changed.
    And then there is the combination of ":qall" and ":wall": the "write and
-quit all" command:  
+quit all" command: >
 
 	:wqall
 
 This writes all modified files and quits Vim.
-   Finally, there is a command that quits Vim and throws away all changes:  
+   Finally, there is a command that quits Vim and throws away all changes: >
 
 	:qall!
 
@@ -310,12 +311,12 @@ Be careful, there is no way to undo this command!
 
 OPENING A WINDOW FOR ALL ARGUMENTS
 
-To make Vim open a window for each file, start it with the "-o" argument:  
+To make Vim open a window for each file, start it with the "-o" argument: >
 
 	vim -o one.txt two.txt three.txt
 
 This results in:
- 
+>
 	+-------------------------------+
 	|file one.txt			|
 	|~				|
@@ -328,7 +329,7 @@ This results in:
 	|three.txt======================|
 	|				|
 	+-------------------------------+
- 
+<
 The "-O" argument is used to get vertically split windows.
    When Vim is already running, the ":all" command opens a window for each
 file in the argument list.  ":vertical all" does it with vertical splits.
@@ -340,13 +341,13 @@ There is a special way to start Nvim, which shows the differences between two
 files.  Let's take a file "main.c" and insert a few characters in one line.
 Write this file with the 'backup' option set, so that the backup file
 "main.c~" will contain the previous version of the file.
-Type this command in a shell to start Nvim in diff mode:  
+Type this command in a shell to start Nvim in diff mode: >
 
 	nvim -d main.c~ main.c
 
 Vim will start, with two windows side by side.  You will only see the line
 in which you added characters, and a few lines above and below it.
- 
+>
 	 VV		      VV
 	+-----------------------------------------+
 	|+ +--123 lines: /* a|+ +--123 lines: /* a|  <- fold
@@ -365,7 +366,7 @@ in which you added characters, and a few lines above and below it.
 	|main.c~==============main.c==============|
 	|					  |
 	+-----------------------------------------+
- 
+<
 (This picture doesn't show the highlighting, use "nvim -d" for that.)
 
 The lines that were not modified have been collapsed into one line.  This is
@@ -397,7 +398,7 @@ this -, the fold will close.
 DIFFING IN VIM
 
 Another way to start in diff mode can be done from inside Vim.  Edit the
-"main.c" file, then make a split and show the differences:  
+"main.c" file, then make a split and show the differences: >
 
 	:edit main.c
 	:vertical diffsplit main.c~
@@ -407,7 +408,7 @@ omit this, you will get a horizontal split.
 
 If you have a patch or diff file, you can use the third way to start diff
 mode.  First edit the file to which the patch applies.  Then tell Vim the name
-of the patch file:  
+of the patch file: >
 
 	:edit main.c
 	:vertical diffpatch main.c.diff
@@ -424,7 +425,7 @@ SCROLL BINDING
 When the files have more changes, you can scroll in the usual way.  Vim will
 try to keep both the windows start at the same position, so you can easily see
 the differences side by side.
-   When you don't want this for a moment, use this command:  
+   When you don't want this for a moment, use this command: >
 
 	:set noscrollbind
 
@@ -432,11 +433,11 @@ the differences side by side.
 JUMPING TO CHANGES
 
 When you have disabled folding in some way, it may be difficult to find the
-changes.  Use this command to jump forward to the next change:  
+changes.  Use this command to jump forward to the next change: >
 
 	]c
 
-To go the other way use:  
+To go the other way use: >
 
 	[c
 
@@ -447,21 +448,21 @@ REMOVING CHANGES
 
 You can move text from one window to the other.  This either removes
 differences or adds new ones.  Vim doesn't keep the highlighting updated in
-all situations.  To update it use this command:  
+all situations.  To update it use this command: >
 
 	:diffupdate
 
 To remove a difference, you can move the text in a highlighted block from one
 window to another.  Take the "main.c" and "main.c~" example above.  Move the
 cursor to the left window, on the line that was deleted in the other window.
-Now type this command:  
+Now type this command: >
 
 	dp
 
 The change will be removed by putting the text of the current window in the
 other window.  "dp" stands for "diff put".
    You can also do it the other way around.  Move the cursor to the right
-window, to the line where "changed" was inserted.  Now type this command:  
+window, to the line where "changed" was inserted.  Now type this command: >
 
 	do
 
@@ -512,13 +513,13 @@ window is to appear:
 You will have noticed that windows never overlap.  That means you quickly run
 out of screen space.  The solution for this is called Tab pages.
 
-Assume you are editing "thisfile".  To create a new tab page use this command:  
+Assume you are editing "thisfile".  To create a new tab page use this command: >
 
 	:tabedit thatfile
 
 This will edit the file "thatfile" in a window that occupies the whole Vim
 window.  And you will notice a bar at the top with the two file names:
- 
+>
 	+----------------------------------+
 	| thisfile | /thatfile/ __________X|    (thatfile is bold)
 	|/* thatfile */			   |
@@ -529,13 +530,13 @@ window.  And you will notice a bar at the top with the two file names:
 	|~				   |
 	|				   |
 	+----------------------------------+
- 
+<
 You now have two tab pages.  The first one has a window for "thisfile" and the
 second one a window for "thatfile".  It's like two pages that are on top of
 each other, with a tab sticking out of each page showing the file name.
 
 Now use the mouse to click on "thisfile" in the top line.  The result is
- 
+>
 	+----------------------------------+
 	| /thisfile/ | thatfile __________X|    (thisfile is bold)
 	|/* thisfile */			   |
@@ -546,18 +547,18 @@ Now use the mouse to click on "thisfile" in the top line.  The result is
 	|~				   |
 	|				   |
 	+----------------------------------+
- 
+<
 Thus you can switch between tab pages by clicking on the label in the top
 line.  If you don't have a mouse or don't want to use it, you can use the "gt"
 command.  Mnemonic: Goto Tab.
 
-Now let's create another tab page with the command:  
+Now let's create another tab page with the command: >
 
 	:tab split
 
 This makes a new tab page with one window that is editing the same buffer as
 the window we were in:
- 
+>
 	+-------------------------------------+
 	| thisfile | /thisfile/ | thatfile __X|   (thisfile is bold)
 	|/* thisfile */			      |
@@ -568,9 +569,9 @@ the window we were in:
 	|~				      |
 	|				      |
 	+-------------------------------------+
- 
+<
 You can put ":tab" before any Ex command that opens a window.  The window will
-be opened in a new tab page.  Another example:  
+be opened in a new tab page.  Another example: >
 
 	:tab help gt
 

@@ -27,7 +27,7 @@ Table of contents: |usr_toc.txt|
 Like most Unix programs Vim can be suspended by pressing CTRL-Z.  This stops
 Vim and takes you back to the shell it was started in.  You can then do any
 other commands until you are bored with them.  Then bring back Vim with the
-"fg" command.  
+"fg" command. >
 
 	CTRL-Z
 	{any sequence of shell commands}
@@ -48,7 +48,7 @@ started.  CTRL-Z will minimize the Vim window instead.
 *21.2*	Executing shell commands
 
 To execute a single shell command from Vim use ":!{command}".  For example, to
-see a directory listing:  
+see a directory listing: >
 
 	:!ls
 	:!dir
@@ -97,7 +97,7 @@ restored.
 
 The 'shada' option is set by default to restore a limited number of items.
 You might want to set it to remember more information.  This is done through
-the following command:  
+the following command: >
 
 	:set shada=string
 
@@ -107,23 +107,23 @@ commas.
    Take a look at how you can build up your own shada string.  First, the '
 option is used to specify how many files for which you save marks (a-z).  Pick
 a nice even number for this option (1000, for instance).  Your command now
-looks like this:  
+looks like this: >
 
 	:set shada='1000
 
 The f option controls whether global marks (A-Z and 0-9) are stored.  If this
 option is 0, none are stored.  If it is 1 or you do not specify an f option,
-the marks are stored.  You want this feature, so now you have this:  
+the marks are stored.  You want this feature, so now you have this: >
 
 	:set shada='1000,f1
 
 The < option controls how many lines are saved for each of the registers.  By
 default, all the lines are saved.  If 0, nothing is saved.  To avoid adding
 thousands of lines to your ShaDa file (which might never get used and makes
-starting Vim slower) you use a maximum of 500 lines:  
+starting Vim slower) you use a maximum of 500 lines: >
 
 	:set shada='1000,f1,<500
- 
+<
 Other options you might want to use:
 	:	number of lines to save from the command line history
 	@	number of lines to save from the input line history
@@ -150,7 +150,7 @@ GETTING BACK TO WHERE YOU STOPPED VIM
 You are halfway through editing a file and it's time to leave for holidays.
 You exit Vim and go enjoy yourselves, forgetting all about your work.  After a
 couple of weeks you start Vim, and type:
- 
+>
 	'0
 
 And you are right back where you left Vim.  So you can get on with your work.
@@ -164,38 +164,38 @@ GETTING BACK TO SOME FILE
 
 If you want to go back to a file that you edited recently, but not when
 exiting Vim, there is a slightly more complicated way.  You can see a list of
-files by typing the command:  
+files by typing the command: >
 
 	:oldfiles
- 	1: ~/.config/nvim/init.vim  
-	2: ~/text/resume.txt  
-	3: /tmp/draft  
+<	1: ~/.config/nvim/init.vim ~
+	2: ~/text/resume.txt ~
+	3: /tmp/draft ~
 
 Now you would like to edit the second file, which is in the list preceded by
-"2:".  You type:  
+"2:".  You type: >
 
 	:e #<2
 
 Instead of ":e" you can use any command that has a file name argument, the
 "#<2" item works in the same place as "%" (current file name) and "#"
 (alternate file name).  So you can also split the window to edit the third
-file:  
+file: >
 
 	:split #<3
 
 That #<123 thing is a bit complicated when you just want to edit a file.
-Fortunately there is a simpler way:  
+Fortunately there is a simpler way: >
 
 	:browse oldfiles
- 	1: ~/.config/nvim/init.vim  
-	2: ~/text/resume.txt  
-	3: /tmp/draft  
+<	1: ~/.config/nvim/init.vim ~
+	2: ~/text/resume.txt ~
+	3: /tmp/draft ~
 	-- More --
 
 You get the same list of files as with |:oldfiles|.  If you want to edit
 "resume.txt" first press "q" to stop the listing.  You will get a prompt:
 
-	Type number and <Enter> (empty cancels):  
+	Type number and <Enter> (empty cancels): ~
 
 Type "2" and press <Enter> to edit the second file.
 
@@ -206,11 +206,11 @@ MOVE INFO FROM ONE VIM TO ANOTHER
 
 You can use the ":wshada" and ":rshada" commands to save and restore the
 information while still running Vim.  This is useful for exchanging register
-contents between two instances of Vim, for example.  In the first Vim do:  
+contents between two instances of Vim, for example.  In the first Vim do: >
 
 	:wshada! ~/tmp/shada
 
-And in the second Vim do:  
+And in the second Vim do: >
 
 	:rshada! ~/tmp/shada
 
@@ -235,16 +235,16 @@ your editing session and restoring it the next day.
 This includes things such as the file list, window layout, global variables,
 options and other information.  (Exactly what is remembered is controlled by
 the 'sessionoptions' option, described below.)
-   The following command creates a session file:  
+   The following command creates a session file: >
 
 	:mksession vimbook.vim
 
-Later if you want to restore this session, you can use this command:  
+Later if you want to restore this session, you can use this command: >
 
 	:source vimbook.vim
 
 If you want to start Vim and restore a specific session, you can use the
-following command:  
+following command: >
 
 	vim -S vimbook.vim
 
@@ -269,7 +269,7 @@ default value is:
 	terminal	include terminal windows
 
 Change this to your liking.  To also restore the size of the Vim window, for
-example, use:  
+example, use: >
 
 	:set sessionoptions+=resize
 
@@ -279,7 +279,7 @@ SESSION HERE, SESSION THERE
 The obvious way to use sessions is when working on different projects.
 Suppose you store your session files in the directory "~/.config/nvim".  You 
 are currently working on the "secret" project and have to switch to the 
-"boring" project:  
+"boring" project: >
 
 	:wall
 	:mksession! ~/.config/nvim/secret.vim
@@ -291,7 +291,7 @@ next time you load the secret session you can continue where you were at this
 point.  And finally you load the new "boring" session.
 
 If you open help windows, split and close various windows, and generally mess
-up the window layout, you can go back to the last saved session:  
+up the window layout, you can go back to the last saved session: >
 
 	:source ~/.config/nvim/boring.vim
 
@@ -302,7 +302,7 @@ session file as a starting point.
 use, and save this in a session.  Then you can go back to this layout whenever
 you want.
    For example, this is a nice layout to use:
- 
+>
 	+----------------------------------------+
 	|		   VIM - main help file  |
 	|					 |
@@ -318,22 +318,22 @@ you want.
 	|~/=========|[No File]===================|
 	|					 |
 	+----------------------------------------+
- 
+<
 This has a help window at the top, so that you can read this text.  The narrow
 vertical window on the left contains a file explorer.  This is a Vim plugin
 that lists the contents of a directory.  You can select files to edit there.
 More about this in the next chapter.
-   Create this from a just started Vim with:  
+   Create this from a just started Vim with: >
 
 	:help
 	CTRL-W w
 	:vertical split ~/
 
 You can resize the windows a bit to your liking.  Then save the session with:
- 
+>
 	:mksession ~/.config/nvim/mine.vim
 
-Now you can start Vim with this layout:  
+Now you can start Vim with this layout: >
 
 	vim -S ~/.config/nvim/mine.vim
 
@@ -352,12 +352,12 @@ This can be used to switch to another session, but keep the command line
 history.  And yank text into registers in one session, and paste it back in
 another session.
    You might prefer to keep the info with the session.  You will have to do
-this yourself then.  Example:  
+this yourself then.  Example: >
 
 	:mksession! ~/.config/nvim/secret.vim
 	:wshada! ~/.local/state/nvim/shada/secret.shada
 
-And to restore this again:  
+And to restore this again: >
 
 	:source ~/.config/nvim/secret.vim
 	:rshada! ~/.local/state/nvim/shada/secret.shada
@@ -374,23 +374,23 @@ the file and restore it later.  Actually, when you store a session, it stores
 the view of each window.
    There are two basic ways to use views.  The first is to let Vim pick a name
 for the view file.  You can restore the view when you later edit the same
-file.  To store the view for the current window:  
+file.  To store the view for the current window: >
 
 	:mkview
 
 Vim will decide where to store the view.  When you later edit the same file
-you get the view back with this command:  
+you get the view back with this command: >
 
 	:loadview
 
 That's easy, isn't it?
    Now you want to view the file without the 'number' option on, or with all
 folds open, you can set the options to make the window look that way.  Then
-store this view with:  
+store this view with: >
 
 	:mkview 1
 
-Obviously, you can get this back with:  
+Obviously, you can get this back with: >
 
 	:loadview 1
 
@@ -407,11 +407,11 @@ you choose.  This view can be loaded while editing another file.  Vim will
 then switch to editing the file specified in the view.  Thus you can use this
 to quickly switch to editing another file, with all its options set as you
 saved them.
-   For example, to save the view of the current file:  
+   For example, to save the view of the current file: >
 
 	:mkview ~/.config/nvim/main.vim
 
-You can restore it with:  
+You can restore it with: >
 
 	:source ~/.config/nvim/main.vim
 
@@ -428,7 +428,7 @@ only.
 spaces.  This requires setting the 'shiftwidth' option to 4.  This modeline
 will do that:
 
-	/* vim:set shiftwidth=4: */  
+	/* vim:set shiftwidth=4: */ ~
 
 Put this line as one of the first or last five lines in the file.  When
 editing the file, you will notice that 'shiftwidth' will have been set to
@@ -438,19 +438,19 @@ the top of the file.  For text files and other files where the modeline gets
 in the way of the normal contents, put it at the end of the file.
 
 The 'modelines' option specifies how many lines at the start and end of the
-file are inspected for containing a modeline.  To inspect ten lines:  
+file are inspected for containing a modeline.  To inspect ten lines: >
 
 	:set modelines=10
 
 The 'modeline' option can be used to switch this off.  Do this when you are
 working as root on Unix or Administrator on MS-Windows, or when you don't
-trust the files you are editing:  
+trust the files you are editing: >
 
 	:set nomodeline
 
 Use this format for the modeline:
 
-	any-text vim:set {option}={value} ... : any-text  
+	any-text vim:set {option}={value} ... : any-text ~
 
 The "any-text" indicates that you can put any text before and after the part
 that Vim will use.  This allows making it look like a comment, like what was
@@ -464,7 +464,7 @@ colon (otherwise it would be seen as the end of the modeline).
 
 Another example:
 
-	// vim:set textwidth=72 dir=c\:\tmp:  use c:\tmp here  
+	// vim:set textwidth=72 dir=c\:\tmp:  use c:\tmp here ~
 
 There is an extra backslash before the first colon, so that it's included in
 the ":set" command.  The text after the second colon is ignored, thus a remark

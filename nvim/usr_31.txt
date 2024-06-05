@@ -28,14 +28,14 @@ edit another file?  There is no menu entry for this.  You could first use
 Window/Split and then File/Open..., but that's more work.
    Since you are typing most commands in Vim, opening the file browser with a
 typed command is possible as well.  To make the split command use the file
-browser, prepend "browse":  
+browser, prepend "browse": >
 
 	:browse split
 
 Select a file and then the ":split" command will be executed with it.  If you
 cancel the file dialog nothing happens, the window isn't split.
    You can also specify a file name argument.  This is used to tell the file
-browser where to start.  Example:  
+browser where to start.  Example: >
 
 	:browse split /etc
 
@@ -55,12 +55,12 @@ values:
 	current		use the current directory
 
 For example, when you are in the directory "/usr", editing the file
-"/usr/local/share/readme", then the command:  
+"/usr/local/share/readme", then the command: >
 
 	:set browsedir=buffer
 	:browse edit
 
-Will start the browser in "/usr/local/share".  Alternatively:  
+Will start the browser in "/usr/local/share".  Alternatively: >
 
 	:set browsedir=current
 	:browse edit
@@ -87,7 +87,7 @@ error message and suggests appending ! if you really want to do it.
    To avoid retyping the command with the !, you can make Vim give you a
 dialog.  You can then press "OK" or "Cancel" to tell Vim what you want.
    For example, you are editing a file and made changes to it.  You start
-editing another file with:  
+editing another file with: >
 
 	:confirm edit foo.txt
 
@@ -106,7 +106,7 @@ doing and want to check what really changed use "CANCEL".  You will be back in
 the same file, with the changes still there.
 
 Just like ":browse", the ":confirm" command can be prepended to most commands
-that edit another file.  They can also be combined:  
+that edit another file.  They can also be combined: >
 
 	:confirm browse edit
 
@@ -121,11 +121,11 @@ pop up a file browser to select the file to edit.
 
 When you are not using the GUI, the ":confirm" command works as well.  Instead
 of popping up a dialog, Vim will print the message at the bottom of the Vim
-window and ask you to press a key to make a choice.  
+window and ask you to press a key to make a choice. >
 
 	:confirm edit main.c
- 	Save changes to "Untitled"?  
-	[Y]es, (N)o, (C)ancel:   
+<	Save changes to "Untitled"? ~
+	[Y]es, (N)o, (C)ancel:  ~
 
 You can now press the single key for the choice.  You don't have to press
 <Enter>, unlike other typing on the command line.
@@ -160,19 +160,19 @@ the mouse for the menus, and all <Alt> keys can be mapped.
 ==============================================================================
 *31.4*	Vim window position and size
 
-To see the current Vim window position on the screen use:  
+To see the current Vim window position on the screen use: >
 
 	:winpos
 
 This will only work in the GUI.  The output may look like this:
 
-	Window position: X 272, Y 103  
+	Window position: X 272, Y 103 ~
 
 The position is given in screen pixels.  Now you can use the numbers to move
-Vim somewhere else.  For example, to move it to the left a hundred pixels:  
+Vim somewhere else.  For example, to move it to the left a hundred pixels: >
 
 	:winpos 172 103
- 
+<
 	Note:
 	There may be a small offset between the reported position and where
 	the window moves.  This is because of the border around the window.
@@ -183,11 +183,11 @@ specific position.
 
 The size of the Vim window is computed in characters.  Thus this depends on
 the size of the font being used.  You can see the current size with this
-command:  
+command: >
 
 	:set lines columns
 
-To change the size set the 'lines' and/or 'columns' options to a new value:  
+To change the size set the 'lines' and/or 'columns' options to a new value: >
 
 	:set lines=50
 	:set columns=80
@@ -196,12 +196,12 @@ Obtaining the size works in a terminal just like in the GUI.  Setting the size
 is not possible in most terminals.
 
 You can start the X-Windows version of gvim with an argument to specify the
-size and position of the window:  
+size and position of the window: >
 
 	gvim -geometry {width}x{height}+{x-offset}+{y-offset}
 
 {width} and {height} are in characters, {x-offset} and {y-offset} are in
-pixels.  Example:  
+pixels.  Example: >
 
 	gvim -geometry 80x25+100+300
 
@@ -215,7 +215,7 @@ while gvim is still running!
    What happens is that gvim disconnects from the shell it was started in.
 That is fine when you start gvim in a terminal, so that you can do other work
 in that terminal.  But when you really want to wait for gvim to finish, you
-must prevent it from disconnecting.  The "-f" argument does this:  
+must prevent it from disconnecting.  The "-f" argument does this: >
 
 	gvim -f file.txt
 
@@ -227,7 +227,7 @@ DELAYED START OF THE GUI
 
 On Unix it's possible to first start Vim in a terminal.  That's useful if you
 do various tasks in the same shell.  If you are editing a file and decide you
-want to use the GUI after all, you can start it with:  
+want to use the GUI after all, you can start it with: >
 
 	:gui
 
