@@ -82,7 +82,7 @@
 - [x] usr_42.txt - Add new menus
 - [x] usr_43.txt - Using filetypes
 - [x] usr_44.txt - Your own syntax highlighted
-- [ ] usr_45.txt - Select your language (locale)
+- [x] usr_45.txt - Select your language (locale)
 
 #### To watch outputs
 
