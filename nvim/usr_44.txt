@@ -302,7 +302,7 @@ highlighting.  This is how you can do this: >
 	:syntax match xIf /if/ nextgroup=xIfCondition skipwhite
 	:syntax match xIfCondition /([^)]*)/ contained nextgroup=xThen skipwhite
 	:syntax match xThen /then/ contained
-
+if ( something ) then
 The "nextgroup" argument specifies which item can come next.  This is not
 required.  If none of the items that are specified are found, nothing happens.
 For example, in this text:
